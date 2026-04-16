@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensement Entrepreneuriat Vert</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* On fixe la hauteur de la page pour éviter les débordements */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #000000 !important;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Organise l'en-tête, les contacts et le formulaire */
+            overflow: hidden;
+        }
+
+        /* L'en-tête garde sa taille fixe */
+        .en-tete {
+            background-color: #0d47a1;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Barre de contact juste sous l'en-tête */
+        .contact-bar {
+            background-color: #111; /* Un gris très sombre pour contraster légèrement */
+            padding: 10px 0;
+            text-align: center;
+            flex-shrink: 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.2s;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-links i {
+            margin-right: 6px;
+            font-size: 1rem;
+        }
+
+        /* Couleurs spécifiques aux réseaux */
+        .fa-facebook { color: #1877F2; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-envelope { color: #ea4335; }
+
+        /* Le formulaire prend TOUT le reste de la place disponible */
+        .container {
+            flex-grow: 1;
+            width: 100%;
+            position: relative;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="en-tete">
+        Identification des acteurs de l'entrepreneuriat vert
+    </div>
+
+    <div class="contact-bar">
+        <div class="contact-links">
+            <a href="https://www.facebook.com/dreddvakinankaratra" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="https://wa.me/261331240576" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:tsiho14@gmail.com">
+                <i class="fas fa-envelope"></i> E-mail
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <iframe src="https://tally.so/embed/vGOobd?hideTitle=1&transparentBackground=1" 
+                title="Formulaire"></iframe>
+    </div>
+
+</body>
+</html>
