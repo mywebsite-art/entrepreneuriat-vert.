@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Jeu d'échecs vs Machine</title>
+
+<style>
+body {
+    font-family: Arial;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 2px solid black;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.white { background: #f0d9b5; }
+.black { background: #b58863; }
+
+#side {
+    max-width: 400px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="board"></div>
+
+<div id="side">
+    <h2>Vidéo d'apprentissage</h2>
+
+    <iframe width="360" height="215"
+        src="https://www.youtube.com/embed/3P8b4c9YH2g"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+    <p>Jeu simple : clique une pièce puis une case.</p>
+</div>
+
+<script>
+const board = document.getElementById("board");
+
+// pièces simplifiées
+let pieces = {
+    "r": "♜", "n": "♞", "b": "♝", "q": "♛", "k": "♚", "p": "♟",
+    "R": "♖", "N": "♘", "B": "♗", "Q": "♕", "K": "♔", "P": "♙"
+};
+
+// position initiale simplifiée
+let position = [
+    "r","n","b","q","k","b","n","r",
+    "p","p","p","p","p","p","p","p",
+    "","","","","","","","",
+    "","","","","","","","",
+    "","","","","","","","",
+    "","","","","","","","",
+    "P","P","P","P","P","P","P","P",
+    "R","N","B","Q","K","B","N","R"
+];
+
+let selected = null;
+
+function render() {
+    board.innerHTML = "";
+    for (let i = 0; i < 64; i++) {
+        let div = document.createElement("div");
+        div.classList.add("square");
+        div.classList.add((Math.floor(i/8)+i)%2 === 0 ? "white" : "black");
+        div.textContent = pieces[position[i]] || "";
+
+        div.onclick = () => handleClick(i);
+        board.appendChild(div);
+    }
+}
+
+function handleClick(i) {
+    if (selected === null) {
+        if (position[i] !== "") selected = i;
+    } else {
+        position[i] = position[selected];
+        position[selected] = "";
+        selected = null;
+        render();
+        setTimeout(botMove, 300);
+    }
+}
+
+// machine joue un coup aléatoire
+function botMove() {
+    let moves = [];
+    for (let i = 0; i < 64; i++) {
+        if (position[i] === "p") {
+            if (position[i+8] === "") moves.push([i, i+8]);
+        }
+    }
+    if (moves.length > 0) {
+        let m = moves[Math.floor(Math.random() * moves.length)];
+        position[m[1]] = position[m[0]];
+        position[m[0]] = "";
+    }
+    render();
+}
+
+render();
+</script>
+
+</body>
+</html>
