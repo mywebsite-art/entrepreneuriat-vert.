@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrepreneuriat Vert</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e5e7eb;
+}
+
+/* TEXTURE */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    opacity: 0.10;
+    pointer-events: none;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: bold;
+    padding: 10px;
+
+    background: linear-gradient(90deg, #22c55e, #4ade80, #86efac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 🔥 UNE SEULE LIGNE FORCÉE */
+.contact-bar {
+    display: flex;
+    flex-wrap: nowrap;     /* NO WRAP */
+    justify-content: center;
+    gap: 6px;
+
+    padding: 8px;
+    overflow: hidden;      /* pas de retour ligne */
+    background: rgba(17,24,39,0.85);
+    backdrop-filter: blur(10px);
+}
+
+/* 🔥 ULTRA COMPACT */
+.contact-card {
+    flex: 0 0 auto;
+
+    width: 85px;       /* ↓ très réduit */
+    height: 32px;      /* ↓ très compact */
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 0.65rem;
+
+    transition: 0.2s;
+}
+
+.contact-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.10);
+}
+
+/* ICONS */
+.fa-facebook { color: #1877F2; }
+.fa-whatsapp { color: #25D366; }
+.fa-envelope { color: #ef4444; }
+.fa-phone { color: #22c55e; }
+
+/* FORM */
+.container {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+}
+
+.card {
+    flex: 1;
+    min-height: 75vh;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(17,24,39,0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* IFRAME */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TITLE -->
+<div class="title">
+    🌱 Identification des acteurs de l'entrepreneuriat vert
+</div>
+
+<!-- CONTACT (UNE LIGNE PARTOUT) -->
+<div class="contact-bar">
+
+    <a class="contact-card" href="https://www.facebook.com/100038120421953" target="_blank">
+        <i class="fab fa-facebook"></i> FB
+    </a>
+
+    <a class="contact-card" href="https://wa.me/261340365611" target="_blank">
+        <i class="fab fa-whatsapp"></i> WA
+    </a>
+
+    <a class="contact-card" href="mailto:dreddvakinankaratra@environnement.mg">
+        <i class="fas fa-envelope"></i> ML
+    </a>
+
+    <a class="contact-card" href="tel:+261340365611">
+        <i class="fas fa-phone"></i> TEL
+    </a>
+
+</div>
+
+<!-- FORM -->
+<div class="container">
+    <div class="card">
+        <iframe 
+            src="https://tally.so/embed/vGOobd?hideTitle=1&transparentBackground=1"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+</body>
+</html>
